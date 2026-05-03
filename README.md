@@ -73,15 +73,19 @@ ClinicalTrials.gov API v2
 ## Quickstart
 
 ```bash
-git clone https://github.com/nkannan06/TrailRisk.git
-cd TrialRisk
-pip install -r requirements.txt
+# 1. Clone the repository
+!git clone https://github.com/nkannan06/TrialRisk.git
+%cd TrialRisk
 
-# Full pipeline: pull → feature engineer → train → evaluate
-python run_pipeline.py
+ 2. Install dependencies (make sure to include all necessary packages)
+!pip install xgboost shap scikit-learn matplotlib pandas numpy requests -q
 
-# Score any trial by NCT ID (live API call)
-python src/score_trial.py NCT04280705
+Optional: If you want to train the model locally or regenerate synthetic data, you might also run !python generate_synthetic.py and !python run_pipeline.py, but score_trial.py works with the pre-trained model stored in the repo.
+
+# 3. Score a trial using its NCT ID
+# Replace 'NCT04280705' with any desired trial NCT ID
+!python score_trial.py NCT04280705
+
 ```
 
 ---
