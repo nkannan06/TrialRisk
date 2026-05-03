@@ -73,8 +73,8 @@ ClinicalTrials.gov API v2
 ## Quickstart
 
 ```bash
-git clone https://github.com/yourusername/trial-risk.git
-cd trial-risk
+git clone https://github.com/yourusername/TrailRisk.git
+cd TrialRisk
 pip install -r requirements.txt
 
 # Full pipeline: pull → feature engineer → train → evaluate
