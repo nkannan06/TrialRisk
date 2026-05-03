@@ -17,11 +17,22 @@ print("=" * 60)
 # ── Step 1: Pull data ────────────────────────────────────────────────────────
 import fileinput
 
-file_path = '/content/TrialRisk/run_pipeline.py'
+file_path = '/content/TrialRisk/data_pull.py'
+target_line_start = '        "query.term": f"AREA[OverallStatus]'
+replacement_lines = [
+    '        "filter.overallStatus": status,',
+    '        "filter.studyType": "INTERVENTIONAL",'
+]
 
 with fileinput.FileInput(file_path, inplace=True) as file:
     for line in file:
-        print(line.replace('from src.model import train', 'from model import train'), end='')
+        if line.strip().startswith('"query.term":'):
+            for new_line in replacement_lines:
+                print(new_line)
+        else:
+            print(line, end='')
+
+print(f"Corrected API query parameters in {file_path}")
 
 t0 = time.time()
 df = pull_all(max_per_status=5000, out_dir="data")
