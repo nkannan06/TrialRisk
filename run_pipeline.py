@@ -15,12 +15,13 @@ print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("=" * 60)
 
 # ── Step 1: Pull data ────────────────────────────────────────────────────────
-print("\n[1/3] Pulling data from ClinicalTrials.gov...")
+import fileinput
+
 file_path = '/content/TrialRisk/run_pipeline.py'
 
 with fileinput.FileInput(file_path, inplace=True) as file:
     for line in file:
-        print(line.replace('from src.data_pull import pull_all', 'from data_pull import pull_all'), end='')
+        print(line.replace('from src.features import build_features', 'from features import build_features'), end='')
 
 t0 = time.time()
 df = pull_all(max_per_status=5000, out_dir="data")
