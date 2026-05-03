@@ -73,7 +73,7 @@ ClinicalTrials.gov API v2
 ## Quickstart
 
 ```bash
-git clone https://github.com/yourusername/TrailRisk.git
+git clone https://github.com/nkannan06/TrailRisk.git
 cd TrialRisk
 pip install -r requirements.txt
 
