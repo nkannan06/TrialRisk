@@ -21,7 +21,7 @@ file_path = '/content/TrialRisk/run_pipeline.py'
 
 with fileinput.FileInput(file_path, inplace=True) as file:
     for line in file:
-        print(line.replace('from src.features import build_features', 'from features import build_features'), end='')
+        print(line.replace('from src.model import train', 'from model import train'), end='')
 
 t0 = time.time()
 df = pull_all(max_per_status=5000, out_dir="data")
